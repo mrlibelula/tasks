@@ -19,12 +19,9 @@
 @endif
 @endsection
 
-{{-- HERO --}}
+{{-- HERO/TITLE --}}
 
-@section('hero-title')
+@section('page-title')
 My Projects
 @endsection
-@section('hero-description')
-Full Stack WebDev Apps
-@endsection
-@include('projects.hero')
+@include('projects.title')

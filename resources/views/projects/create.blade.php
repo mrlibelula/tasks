@@ -2,7 +2,7 @@
 @extends('projects.navbar')
 
 @section('content')
-    <h1 class="title">Create Project</h1>
+    {{-- <h1 class="title">Create Project</h1> --}}
     
     @include('projects.errors')
 
@@ -38,3 +38,9 @@
     </form>
     
 @endsection
+
+{{-- HERO/TITLE --}}
+@section('page-title')
+Create Project
+@endsection
+@include('projects.title')

@@ -1,11 +1,5 @@
 @section('navbar')
 @parent
-
-{{-- @if (isset($config))
-    <nav class="navbar {{ $configs->get()->first()->theme_hex == '#000000' ? 'is-dark' : 'is-light' }}">
-@else
-    <nav class="navbar is-light">
-@endif --}}
 <nav class="navbar is-dark is-fixed-top">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
@@ -21,7 +15,7 @@
     <div id="navMenubd-example" class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link  is-active" href="/projects">
+                <a class="navbar-link is-active" href="/projects">
                     Projects
                 </a>
                 <div class="navbar-dropdown ">
@@ -46,7 +40,7 @@
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
                 <div class="navbar-link">Options</div>
-                <div id="moreDropdown" class="navbar-dropdown ">
+                <div id="moreDropdown" class="navbar-dropdown">
                     <a class="navbar-item " href="/projects">
                         <div class="level is-mobile">
                             <div class="level-left">
@@ -87,6 +81,37 @@
                     </a>
                 </div>
             </div>
+            {{-- logout --}}
+            @guest
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+            @else
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="#">
+                    {{ Auth::user()->name }}
+                </a>
+                <div class="navbar-dropdown ">
+                    <a class="navbar-item " href="{{ route('logout') }}" 
+                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </div> 
+            @endguest
+
         </div>
     </div>
 </nav>

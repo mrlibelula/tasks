@@ -10,6 +10,10 @@
     <title>Project4</title>
 
     <style>
+        .page-title {
+            color: white;
+            padding: 0.5rem 0rem 0.6rem 1rem;
+        }
         .navbar-item.is-mega {
             position: static;
         }
@@ -56,6 +60,9 @@
     </div>
     <div>
         @yield('hero')
+    </div>
+    <div>
+        @yield('title')
     </div>
     <div class="field">
         @yield('nav-page')

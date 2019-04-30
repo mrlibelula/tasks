@@ -28,8 +28,9 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
+        // $this->authorize('create', $project);
         return view('projects.create');
     }
 
@@ -41,7 +42,7 @@ class ProjectsController extends Controller
      */
     public function store(Request $request, Project $project)
     {
-        $this->authorize('create', $project);
+        // $this->authorize('create', $project);
 
         Project::create(request()->validate([
             'title' => ['required', 'min:3', 'max:191'], 
@@ -70,7 +71,7 @@ class ProjectsController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -82,7 +83,12 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $project = Project::findOrFail($project->id);
+        $project->update(request()->validate([
+            'title' => ['required', 'min:3', 'max:191'], 
+            'description' => ['required', 'min:3', 'max:255']
+        ]));
+        return view('projects.show', compact('project'));
     }
 
     /**
@@ -93,6 +99,7 @@ class ProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        Project::destroy($project->id);
+        return redirect('/projects');
     }
 }
