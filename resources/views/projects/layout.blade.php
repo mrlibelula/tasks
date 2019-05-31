@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css" />
     <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <title>Project4</title>
 
     <style>
+        .is-complete {
+            text-decoration: line-through;
+        }
+
         .page-title {
             color: white;
             padding: 0.5rem 0rem 0.6rem 1rem;

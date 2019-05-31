@@ -2,8 +2,6 @@
 @extends('projects.navbar')
 
 @section('content')
-    {{-- <h1 class="title">Create Project</h1> --}}
-    
     @include('projects.errors')
 
     <form class="form" action="{{ action('ProjectsController@store') }}" method="POST">
